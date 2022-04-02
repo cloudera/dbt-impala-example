@@ -1,0 +1,34 @@
+version: 2
+
+seeds:
+  - name: country_codes
+    description: Country code look up tables
+    columns:
+      - name: country
+        description: Full country name
+        tests:
+          - not_null
+      - name: alpha_2code
+        description: ISO Alpha2 country code
+        tests:
+          - not_null
+          - length:
+              len: 2
+      - name: alpha_3code
+        description: ISO Alpha3 country code
+        tests:
+          - not_null
+          - length:
+              len: 3
+      - name: numeric_code
+        description: Numeric Country Code
+        tests:
+          - not_null
+      - name: latitude_avg
+        description: Average Latitude
+        tests:
+          - not_null
+      - name: longitude_avg
+        description: Average Longitude
+        tests:
+          - not_null

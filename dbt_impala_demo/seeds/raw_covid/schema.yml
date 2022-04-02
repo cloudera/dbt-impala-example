@@ -1,0 +1,205 @@
+version: 2
+
+seeds:
+  - name: covid_cases
+    description: COVID19 Cases Data
+    columns:
+      - name: date_rep
+        description: Date of reporting “dd/mm/yyyy”
+        tests:
+          - not_null
+      - name: day
+        tests:
+          - not_null
+      - name: month
+        tests:
+          - not_null
+      - name: year
+        tests:
+          - not_null
+      - name: cases
+        description: Number of newly reported cases
+        tests:
+          - not_null
+      - name: deaths
+        description: Number of newly reported deaths
+        tests:
+          - not_null
+      - name: countries_and_territories
+        description: Name of the country or territory
+        tests:
+          - not_null
+      - name: geo_id
+        description: 2-letter code
+        tests:
+          - not_null
+          - length:
+              len: 2
+      - name: countryterritory_code
+        description: 3-letter ISO code
+        tests:
+          - not_null
+          - length:
+              len: 3
+      - name: pop_data2020
+        description: Eurostat 2020 data
+        tests:
+          - not_null
+      - name: continent_exp
+        description: Name of the continent reporting
+        tests:
+          - not_null
+  - name: covid_vaccine
+    description: COVID19 Vaccine Data
+    columns:
+      - name: year_week_iso
+        tests:
+          - not_null
+        description: >
+          Date when the vaccine was
+          received/administered. Only weeks
+          are allowed (e.g. “2021-W01”).
+      - name: reporting_country
+        tests:
+          - not_null
+          - length:
+              len: 2
+        description: ISO 3166-1-alpha-2
+      - name: demoninator
+        description: >
+          Population denominators for target
+          groups (total population and age-
+          specific population obtained from
+          Eurostat/UN).
+          Denominators reported by countries
+          for TargetGroup = “HCW” and
+          TargetGroup = “LTCF”.
+        tests:
+          - not_null
+      - name: num_doses_recv
+        description: >
+          Number of vaccine doses distributed
+          by the manufacturers to the country
+          during the reporting week.
+        tests:
+          - not_null
+      - name: num_doses_exported
+        description: >
+          Number of vaccine doses donated
+          or sold by the country during the
+          reporting week.
+        tests:
+          - not_null
+      - name: first_dose
+        description: >
+          Number of first dose vaccine
+          administered to individuals during
+          the reporting week.
+        tests:
+          - not_null
+      - name: first_dose_refused
+        description: >
+          Number of individuals refusing the
+          first vaccine dose.
+        tests:
+          - not_null
+      - name: second_dose
+        description: >
+          Number of second dose vaccine
+          administered to individuals during
+          the reporting week.
+        tests:
+          - not_null
+      - name: dose_additional1
+        description: >
+          Number of first additional vaccine
+          doses administered after a
+          complete standard primary
+          course to individuals during the
+          reporting week.
+        tests:
+          - not_null
+      - name: unknown_dose
+        description: >
+          Number of doses administered
+          during the reporting week where the
+          type of dose was not specified (i.e. it
+          is not known whether it was a first
+          or second dose).
+        tests:
+          - not_null
+      - name: region
+        description: >
+          As a minimum data should be
+          reported at national level (Region =
+          country code).
+        tests:
+          - not_null
+      - name: target_group
+        description: >
+          Target group for vaccination. As a
+          minimum the following should be
+          reported: “ALL” for the overall
+          figures, “HCW” for healthcare
+          workers and age-groups (preferably
+          using the detailed age-groups)
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                [
+                  "ALL",
+                  "Age<18",
+                  "HCW",
+                  "LTCF",
+                  "Age0_4",
+                  "Age5_9",
+                  "Age10_14",
+                  "Age15_17",
+                  "Age18_24",
+                  "Age25_49",
+                  "Age50_59",
+                  "Age60_69",
+                  "Age70_79",
+                  "Age80+",
+                  "AgeUnk",
+                  "1_Age<60",
+                  "1_Age60+",
+                ]
+      - name: vaccine
+        description: >
+          Name of vaccine. Additional vaccines
+          will be added on approval or as
+          requested.
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                [
+                  "AZ",
+                  "BECNBG",
+                  "BHACOV",
+                  "CHU",
+                  "COM",
+                  "CVAC",
+                  "JANSS",
+                  "HAYATVAC",
+                  "MOD",
+                  "NVX",
+                  "NVXD",
+                  "QAZVAQ",
+                  "SGSK",
+                  "SIICOV",
+                  "SIN",
+                  "SPU",
+                  "SPUL",
+                  "SRCVB",
+                  "WUCNBG",
+                  "CNBG",
+                  "UNK",
+                  "ZFUZ",
+                ]
+      - name: population
+        description: Age-specific population for the country
+        tests:
+          - not_null
