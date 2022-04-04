@@ -1,7 +1,20 @@
 version: 2
 
 seeds:
-  - name: country_codes
+  - name: ref__populations
+    description: Worldwide population data by country
+    columns:
+      - name: country_code
+        description: ISO Alpha3 country code
+        tests: 
+          - not_null
+          - length:
+              len: 3
+      - name: population
+        description: Population figure for 2020
+        tests: 
+          - not_null
+  - name: ref__country_codes
     description: Country code look up tables
     columns:
       - name: country

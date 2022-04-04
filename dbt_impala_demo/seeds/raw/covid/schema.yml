@@ -1,7 +1,7 @@
 version: 2
 
 seeds:
-  - name: covid_cases
+  - name: raw_covid__cases
     description: COVID19 Cases Data
     columns:
       - name: date_rep
@@ -25,31 +25,13 @@ seeds:
         description: Number of newly reported deaths
         tests:
           - not_null
-      - name: countries_and_territories
-        description: Name of the country or territory
-        tests:
-          - not_null
       - name: geo_id
         description: 2-letter code
         tests:
           - not_null
           - length:
               len: 2
-      - name: countryterritory_code
-        description: 3-letter ISO code
-        tests:
-          - not_null
-          - length:
-              len: 3
-      - name: pop_data2020
-        description: Eurostat 2020 data
-        tests:
-          - not_null
-      - name: continent_exp
-        description: Name of the continent reporting
-        tests:
-          - not_null
-  - name: covid_vaccine
+  - name: raw_covid__vaccines
     description: COVID19 Vaccine Data
     columns:
       - name: year_week_iso
@@ -65,17 +47,6 @@ seeds:
           - length:
               len: 2
         description: ISO 3166-1-alpha-2
-      - name: demoninator
-        description: >
-          Population denominators for target
-          groups (total population and age-
-          specific population obtained from
-          Eurostat/UN).
-          Denominators reported by countries
-          for TargetGroup = “HCW” and
-          TargetGroup = “LTCF”.
-        tests:
-          - not_null
       - name: num_doses_recv
         description: >
           Number of vaccine doses distributed
@@ -110,15 +81,6 @@ seeds:
           the reporting week.
         tests:
           - not_null
-      - name: dose_additional1
-        description: >
-          Number of first additional vaccine
-          doses administered after a
-          complete standard primary
-          course to individuals during the
-          reporting week.
-        tests:
-          - not_null
       - name: unknown_dose
         description: >
           Number of doses administered
@@ -126,13 +88,6 @@ seeds:
           type of dose was not specified (i.e. it
           is not known whether it was a first
           or second dose).
-        tests:
-          - not_null
-      - name: region
-        description: >
-          As a minimum data should be
-          reported at national level (Region =
-          country code).
         tests:
           - not_null
       - name: target_group
@@ -199,7 +154,3 @@ seeds:
                   "UNK",
                   "ZFUZ",
                 ]
-      - name: population
-        description: Age-specific population for the country
-        tests:
-          - not_null
