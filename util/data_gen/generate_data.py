@@ -91,8 +91,8 @@ def generate_dates(days):
 
 
 def generate_vaccine(dates):
-    columns = ['year_week_iso', 'reporting_country', 'denominator', 'num_doses_recv', 'num_doses_exported', 'first_dose',
-               'first_dose_refused', 'second_dose', 'dose_additional1', 'unknown_dose', 'region', 'target_group', 'vaccine', 'population']
+    columns = ['year_week_iso', 'reporting_country', 'num_doses_recv', 'num_doses_exported', 'first_dose',
+               'first_dose_refused', 'second_dose', 'unknown_dose', 'target_group', 'vaccine']
 
     data = []
 
@@ -105,26 +105,21 @@ def generate_vaccine(dates):
             row = {
                 'year_week_iso': date.strftime(date_format),
                 'reporting_country': country_code,
-                'denominator': pop,
                 'num_doses_recv': random.randint(0, 100000),
                 'num_doses_exported': random.randint(0, 100000),
                 'first_dose': random.randint(0, 100000),
                 'first_dose_refused': random.randint(0, 100),
                 'second_dose': random.randint(0, 100000),
-                'dose_additional1': random.randint(0, 1000),
                 'unknown_dose': random.randint(0, 100),
-                'region': country_code,
                 'target_group': pick_random_target_group(),
                 'vaccine': pick_random_vaccine(),
-                'population': pop
             }
             data.append([*row.values()])
     return data
 
 
 def generate_cases(dates):
-    columns = ['date_rep', 'day', 'month', 'year', 'cases', 'deaths', 'countries_and_territories',
-               'geo_id', 'countryterritory_code', 'pop_data2020', 'continent_exp']
+    columns = ['date_rep', 'day', 'month', 'year', 'cases', 'deaths','geo_id']
 
     date_format = '%d/%m/%Y'
 
@@ -135,16 +130,12 @@ def generate_cases(dates):
             country = pick_random_country()
             row = {
                 'date_rep': date.strftime(date_format),
-                'day':date.strftime('%d'),
-                'month':date.strftime('%m'),
-                'year':date.strftime('%Y'),
+                'day': date.strftime('%d'),
+                'month': date.strftime('%m'),
+                'year': date.strftime('%Y'),
                 'cases': random.randint(0,100000),
                 'deaths': random.randint(0,100),
-                'countries_and_territories': country['country'],
                 'geo_id': country['alpha_2code'],
-                'countryterritory_code': country['alpha_3code'],
-                'pop_data2020': random.randint(10000, 999999),
-                'continent_exp': 'A Continent'
             }
             data.append([*row.values()])
 
