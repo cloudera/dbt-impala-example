@@ -3,4 +3,4 @@ select
   cases, 
   deaths, 
   geo_id
-from {{ ref('raw_covid__cases') }};
+from {{ source('raw_covid','raw_covid__cases') }};
