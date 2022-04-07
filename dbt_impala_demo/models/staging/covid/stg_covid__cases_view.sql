@@ -1,5 +1,5 @@
 select 
-  cast(cast(unix_timestamp(date_rep, "dd/MM/yyyy") as timestamp) AS DATE) as rep_date, 
+  cast(cast(unix_timestamp(date_rep, "dd/MM/yyyy") as timestamp) AS DATE) as date_rep, 
   cases, 
   deaths, 
   geo_id
