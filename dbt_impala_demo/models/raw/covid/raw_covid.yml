@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_covid
+    schema: dbt_demo_raw_covid
+    tables:
+      - name: raw_covid__vaccines
+      - name: raw_covid__cases

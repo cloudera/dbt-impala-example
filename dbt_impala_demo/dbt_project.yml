@@ -20,9 +20,6 @@ clean-targets:
 
 seeds:
   dbt_impala_demo:
-    raw:
-      covid: 
-          +schema: raw_covid
     reference:
       +schema: reference
 

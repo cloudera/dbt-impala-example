@@ -3,6 +3,9 @@ version: 2
 seeds:
   - name: ref__populations
     description: Worldwide population data by country
+    config:
+      column_types:
+        population: BIGINT
     columns:
       - name: country_code
         description: ISO Alpha3 country code
