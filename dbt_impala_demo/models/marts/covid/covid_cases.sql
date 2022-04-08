@@ -10,7 +10,7 @@ with cases as(
     cases, 
     deaths, 
     geo_id
-  from {{ ref('stg_covid__cases_view') }}
+  from {{ ref('stg_covid__cases') }}
 ),
 country_codes as(
   select
