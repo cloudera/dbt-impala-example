@@ -1,0 +1,3 @@
+dbt-core==1.0.5rc2
+dbt-impala==1.0.5rc2
+impyla
