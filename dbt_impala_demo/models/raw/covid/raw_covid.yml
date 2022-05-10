@@ -22,3 +22,9 @@ sources:
     tables:
       - name: raw_covid__vaccines
       - name: raw_covid__cases
+        columns:
+        - name: geo_id
+          tests:
+           - not_null
+           - length:
+               len: 2
