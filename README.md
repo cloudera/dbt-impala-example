@@ -10,11 +10,12 @@ This directory contains some utilities for generating fake data.
 # Getting started
 It is recommended to use `venv` to create a Python virtual environment for the demo.
 ## Requirements
-dbt >= 1.0.1
+dbt >= 1.1.0
 
-dbt-impala >= 1.0.1
+dbt-impala >= 1.1.0
 
-impyla
+impyla >= 0.18a5
+
 ## Install
 Start by cloning this repo
 
